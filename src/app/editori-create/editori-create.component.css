@@ -1,0 +1,57 @@
+label {
+    color: #435960;
+    font-weight: bold;
+}
+
+input {
+    font-size: 1em;
+    padding: .5rem;
+}
+
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+}
+
+.example-full-width {
+    width: 100%;
+}
+
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.example-full-width {
+    width: 100%;
+}
+
+.mat-card {
+    width: 30%;
+    margin: 0 auto;
+}
+
+.mat-select-min-line,
+.ng-tns-c106-3,
+.ng-star-inserted,
+.mat-h1,
+.mat-select-value-text,
+.mat-select-value,
+.mat-headline,
+.mat-typography,
+.mat-form-field,
+span,
+h1 {
+    font-family: 'Poppins', sans-serif;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+    font-family: 'Poppins', sans-serif!important;
+}

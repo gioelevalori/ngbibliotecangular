@@ -1,0 +1,59 @@
+<div class="center-content">
+    <mat-card class="example-card">
+        <mat-card-header>
+        </mat-card-header>
+        <mat-card-content>
+            <mat-tab-group>
+                <mat-tab label="Login">
+                    <form name="loginForm" #f="ngForm" (ngSubmit)="signIn(f)">
+                        <mat-form-field class="example-full-width">
+                            <input type="email" required email matInput ngModel #email="ngModel" name="email" id="email" placeholder="Email" value="">
+
+
+                            <div *ngIf="email.dirty && email.touched && email.invalid">
+                                <div class="alert-danger" *ngIf="email.errors?.required">
+                                    Il campo email è obbligatorio
+                                </div>
+
+                                <div class="alert-danger" *ngIf="email.errors?.email">
+                                    Inserisci essere un'e-mail valida
+                                </div>
+                            </div>
+
+
+                            <mat-icon matSuffix>email</mat-icon>
+                        </mat-form-field>
+
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Password</mat-label>
+                            <input [type]="hide ? 'password' : 'text'" required minlength="6" ngModel #password="ngModel" matInput name="password" id="password" placeholder="Password">
+                            <button class="icon" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+
+                            <div *ngIf="password.dirty && password.touched && password.invalid">
+                                <div class="alert-danger" *ngIf="password.errors?.required">
+                                    Il campo password è obbligatorio
+                                </div>
+
+                                <div class="alert-danger" *ngIf="password.errors?.minlength">
+                                    La password deve essere do {{password.errors?.minlength.requiredLength }} caratteri
+                                </div>
+
+                            </div>
+
+                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                          </button>
+
+                        </mat-form-field>
+
+
+                        <button [disabled]="!f.valid" mat-button color="primary">Login</button>
+                    </form>
+                </mat-tab>
+
+            </mat-tab-group>
+
+        </mat-card-content>
+        <h3>Non sei registrato?<button mat-button routerLink="/signup">Registrati</button></h3>
+    </mat-card>
+
+</div>

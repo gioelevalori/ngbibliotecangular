@@ -1,0 +1,43 @@
+<mat-card class="example-card">
+    <mat-form-field class="example-full-width" appearance="fill">
+        <input matInput placeholder="Search..." [(ngModel)]="filterTerm">
+        <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field><br>
+    <table class="table table-striped ">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Email</th>
+                <th scope="col">Libri</th>
+                <th scope="col">Descrizione</th>
+                <th scope="col">Azione</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let richiesta of richieste | filter:filterTerm">
+                <th scope="row">{{richiesta.id}}</th>
+                <td>{{richiesta.email}}</td>
+                <td>{{richiesta.libri.titolo}}</td>
+                <td>{{richiesta.descrizione}}</td>
+                <td><button mat-raised-button color="primary" routerLink="/richieste/{{richiesta.id}}">Mostra</button></td>
+
+            </tr>
+
+        </tbody>
+    </table>
+</mat-card>
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">

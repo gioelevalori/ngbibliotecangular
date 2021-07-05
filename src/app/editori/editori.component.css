@@ -1,0 +1,46 @@
+table {
+    font-family: 'Poppins', sans-serif;
+}
+
+a.badge {
+    display: none;
+}
+
+span.badge {
+    display: none;
+}
+
+th:hover {
+    background-color: yellow;
+}
+
+.mat-card {
+    width: 60%;
+    margin: 0 auto;
+}
+
+th {
+    width: 10%;
+}
+
+.mat-select-min-line,
+.ng-tns-c106-3,
+.ng-star-inserted,
+.mat-h1,
+.mat-select-value-text,
+.mat-select-value,
+.mat-headline,
+.mat-typography,
+.mat-form-field,
+span,
+h1 {
+    font-family: 'Poppins', sans-serif;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+    font-family: 'Poppins', sans-serif!important;
+}

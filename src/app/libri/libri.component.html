@@ -1,0 +1,54 @@
+<mat-card class="example-card">
+
+    <mat-form-field class="form-inline" class="example-full-width" appearance="fill">
+        <input matInput placeholder="Search..." [(ngModel)]="filterTerm">
+        <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field><br>
+    <button mat-raised-button color="primary" (click)="newLibri()">Nuovo Libro</button>
+    <table class="table table-striped ">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Titolo</th>
+                <th scope="col">Editore</th>
+                <th scope="col">Sito Editore</th>
+                <th scope="col">Autore</th>
+                <th scope="col">Luogo Edizione</th>
+                <th scope="col">Condizione Libro</th>
+                <th scope="col">Pagine</th>
+                <th scope="col">Isbn</th>
+                <th scope="col">Isbn13</th>
+                <th scope="col">Descrizione</th>
+                <th scope="col">Genere</th>
+                <th scope="col">Anno Edizione</th>
+                <th scope="col">Stato</th>
+                <th scope="col">Azioni</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let libro of libri">
+                <th scope="row">{{libro.id}}</th>
+                <td>{{libro.titolo}}</td>
+                <td>{{[libro.editori.nome]}}</td>
+                <td>{{libro.editori.sito_editore}}</td>
+                <td>{{libro.autori.nome}} {{libro.autori.cognome}}</td>
+                <td>{{libro.luogo_edizione}}</td>
+                <td>{{libro.condizione_libro}}</td>
+                <td>{{libro.pagine}}</td>
+                <td>{{libro.isbn}}</td>
+                <td>{{libro.isbn13}}</td>
+                <td>{{libro.descrizione}}</td>
+                <td>{{libro.genere}}</td>
+                <td>{{libro.anno_edizione}}</td>
+                <td>{{libro.stato}}</td>
+
+                <td><button mat-raised-button color="primary" routerLink="/admin/libri/{{libro.id}}">Mostra</button></td>
+
+            </tr>
+
+        </tbody>
+    </table>
+</mat-card>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">

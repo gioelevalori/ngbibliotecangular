@@ -1,0 +1,119 @@
+<div class="center-content">
+    <mat-card class="example-card">
+        <mat-card-content>
+            <mat-tab-group>
+                <mat-tab label="Sign up">
+                    <form name="signupForm" #f="ngForm" (ngSubmit)="signUp(f)">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Nome</mat-label>
+                            <input type="nome" matInput required pattern="[a-zA-Z\s]*" minlength="3" ngModel #name="ngModel" class="form-control" name="name" id="name" placeholder="Nome" value="">
+                            <mat-icon matSuffix>person</mat-icon>
+                        </mat-form-field>
+
+
+                        <div *ngIf="name.dirty && name.touched && name.invalid">
+                            <div class="alert-danger" *ngIf="name.errors?.required">
+                                Il campo del nome è obbligatorio
+                            </div>
+
+                            <div class="alert-danger" *ngIf="name.errors?.minlength">
+                                La lunghezza minima del campo nome è di {{name.errors?.minlength.requiredLength }} caratteri
+                            </div>
+
+                            <div class="alert-danger" *ngIf="name.errors?.pattern">
+                                Il primo modello del campo è {{name.errors?.pattern.requiredPattern }}
+                            </div>
+
+                        </div>
+
+
+
+
+
+
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Cognome</mat-label>
+                            <input type="text" matInput pattern="[a-zA-Z\s]*" minlength="3" ngModel #lastname="ngModel" name="lastname" id="lastname" placeholder="Cognome" value="">
+                            <mat-icon matSuffix>person</mat-icon>
+                        </mat-form-field>
+
+                        <div *ngIf="lastname.dirty && lastname.touched && lastname.invalid">
+                            <div class="alert-danger" *ngIf="lastname.errors?.required">
+                                Il campo del cognome è obbligatorio
+                            </div>
+
+                            <div class="alert-danger" *ngIf="lastname.errors?.minlength">
+                                La lunghezza minima del campo cognome è di {{lastname.errors?.minlength.requiredLength }} caratteri
+                            </div>
+
+                            <div class="alert-danger" *ngIf="lastname.errors?.pattern">
+                                Il primo modello del campo è {{lastname.errors?.pattern.requiredPattern }}
+                            </div>
+
+                        </div>
+
+
+
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Email</mat-label>
+                            <input type="email" matInput placeholder="Email" required email ngModel #email="ngModel" name="email" id="email" value="">
+                            <mat-icon matSuffix>email</mat-icon>
+                        </mat-form-field>
+
+                        <div *ngIf="email.dirty && email.touched && email.invalid">
+                            <div class="alert-danger" *ngIf="email.errors?.required">
+                                Il campo dell' email è obbligatorio
+                            </div>
+
+                            <div class="alert-danger" *ngIf="email.errors?.email">
+                                Deve essere un'e-mail valida
+                            </div>
+                        </div>
+
+
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Telefono</mat-label>
+                            <input type="emphoneail" required phone matInput placeholder="Telefono" ngModel #phone="ngModel" name="phone" id="phone" value="">
+                            <mat-icon matSuffix>phone</mat-icon>
+                        </mat-form-field>
+
+                        <div *ngIf="phone.dirty && phone.touched && phone.invalid">
+                            <div class="alert-danger" *ngIf="phone.errors?.required">
+                                Il campo del telefono è obbligatorio
+                            </div>
+
+                            <div class="alert-danger" *ngIf="phone.errors?.email">
+                                Deve essere un numero di telefono valido
+                            </div>
+                        </div>
+
+
+
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Password</mat-label>
+                            <input type="password" required minlength="6" matInput ngModel #password="ngModel" name="password" id="password" placeholder="Password">
+                            <mat-icon matSuffix>vpn_key</mat-icon>
+                        </mat-form-field>
+
+                        <div *ngIf="password.dirty && password.touched && password.invalid">
+                            <div class="alert-danger" *ngIf="password.errors?.required">
+                                Il campo della password è obbligatoria
+                            </div>
+
+                            <div class="alert-danger" *ngIf="password.errors?.minlength">
+                                La password deve essere almeno di {{password.errors?.minlength.requiredLength }} caratteri
+                            </div>
+
+                        </div>
+
+
+
+                        <button [disabled]="!f.valid" mat-button color="primary">Register</button>
+                    </form>
+                </mat-tab>
+            </mat-tab-group>
+
+        </mat-card-content>
+
+    </mat-card>
+</div>

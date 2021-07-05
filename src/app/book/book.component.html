@@ -1,0 +1,59 @@
+<mat-card>
+    <table class="table  table-striped">
+        <tr>
+            <th>Titolo</th>
+            <mat-option>{{libri.titolo}}</mat-option>
+        </tr>
+        <tr>
+            <th>Editore</th>
+            <mat-option>{{ libri.editori.nome }}</mat-option>
+        </tr>
+        <tr>
+            <th>Sito Editore</th>
+            <mat-option>{{ libri.editori.sito_editore }}</mat-option>
+        </tr>
+        <tr>
+            <th>Autore</th>
+            <mat-option>{{ libri.autori.nome }} {{ libri.autori.cognome }}</mat-option>
+            <tr>
+                <th>Luogo edizione</th>
+                <mat-option>{{libri.luogo_edizione}}</mat-option>
+            </tr>
+            <tr>
+                <th>Condizione Libro</th>
+                <mat-option>{{libri.condizione_libro}}</mat-option>
+            </tr>
+            <tr>
+                <th>Codice</th>
+                <mat-option>{{libri.pagine}}</mat-option>
+            </tr>
+            <tr>
+                <th>Isbn</th>
+                <mat-option>{{libri.isbn}}</mat-option>
+            </tr>
+            <tr>
+                <th>Isbn13</th>
+                <mat-option>{{libri.isbn13}}</mat-option>
+            </tr>
+            <tr>
+                <th>Descrizione</th>
+                <mat-card-subtitle>
+                    <td class="descrizione">{{libri.descrizione}}</td>
+                </mat-card-subtitle>
+            </tr>
+            <tr>
+                <th>Genere</th>
+                <mat-option>{{libri.genere}}</mat-option>
+            </tr>
+            <tr>
+                <th>Anno Edizione</th>
+                <mat-option>{{libri.anno_edizione}}</mat-option>
+            </tr>
+            <tr>
+                <th>Stato</th>
+                <mat-option>{{libri.stato}}</mat-option>
+            </tr>
+    </table>
+    <button mat-raised-button (click)="backLibri()">Indietro</button>
+    <button mat-raised-button color="primary" (click)="richiesta()">Richiedi</button>
+</mat-card>

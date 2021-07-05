@@ -1,0 +1,39 @@
+.sidenav-container {
+    height: 100%;
+}
+
+.sidenav {
+    width: 200px;
+}
+
+.sidenav .mat-toolbar {
+    background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.mat-select-min-line,
+.ng-tns-c106-3,
+.ng-star-inserted,
+.mat-h1,
+.mat-select-value-text,
+.mat-select-value,
+.mat-headline,
+.mat-typography,
+.mat-form-field,
+span,
+h1 {
+    font-family: 'Poppins', sans-serif;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+    font-family: 'Poppins', sans-serif!important;
+}

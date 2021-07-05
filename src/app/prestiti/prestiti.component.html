@@ -1,0 +1,34 @@
+<mat-card class="example-card">
+    <mat-form-field class="form-inline" class="example-full-width" appearance="fill">
+        <input matInput placeholder="Search..." [(ngModel)]="filterTerm">
+        <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+    <table class="table table-striped ">
+        <thead>
+            <button mat-raised-button color="primary" (click)="newPrestiti()">Nuovo Prestito</button>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Utente</th>
+                <th scope="col">Libro</th>
+                <th scope="col">Data Prestito</th>
+                <th scope="col">Data Riconsegna</th>
+                <th scope="col">Azione</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let prestito of prestiti | filter:filterTerm">
+                <th scope="row">{{prestito.id}}</th>
+                <td>{{prestito.user.name}}</td>
+                <td>{{prestito.libri.titolo}}</td>
+                <td>{{prestito.data_prestito}}</td>
+                <td>{{prestito.data_riconsegna}}</td>
+                <td><button mat-raised-button color="primary" routerLink="/prestiti/{{prestito.id}}">Mostra</button></td>
+
+            </tr>
+
+        </tbody>
+    </table>
+</mat-card>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">

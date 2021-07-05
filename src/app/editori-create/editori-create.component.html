@@ -1,0 +1,18 @@
+<mat-card>
+    <form class="example-form">
+        <br>
+        <h1>Nuovo Editore</h1>
+        <mat-form-field class="example-full-width">
+            <mat-label>Nome</mat-label>
+            <input #nome matInput placeholder="" name="nome">
+        </mat-form-field>
+        <br>
+        <mat-form-field class="example-full-width">
+            <mat-label>Sito</mat-label>
+            <input #sito_editore matInput placeholder="" name="sito_editore">
+        </mat-form-field>
+        <br>
+        <button mat-raised-button (click)="backEditori()">Indietro</button>
+        <button mat-raised-button color="primary" (click)="create(nome.value, sito_editore.value)">Salva</button>
+    </form>
+</mat-card>

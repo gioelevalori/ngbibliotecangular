@@ -1,0 +1,40 @@
+<mat-card>
+
+    <form class="example-form">
+        <h1>Nuovo Prestito</h1>
+        <mat-form-field class="example-full-width">
+            <mat-label>Utente</mat-label>
+            <mat-select matNativeControl #utente_id name="utente_id">
+                <mat-option *ngFor="let user of users" value="{{ user.id }}">{{ user.name }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="example-full-width">
+            <mat-label>Libro</mat-label>
+            <mat-select matNativeControl #libro_id name="libro_id">
+                <mat-option *ngFor="let libro of libri" value="{{ libro.id }}">{{ libro.titolo }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="example-full-width">
+            <mat-label>data_prestito</mat-label>
+            <input #data_prestito matInput [matDatepicker]="datepicker" placeholder="" name="data_prestito">
+            <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+            <mat-datepicker #datepicker></mat-datepicker>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="example-full-width">
+            <mat-label>data_riconsegna</mat-label>
+            <input #data_riconsegna matInput [matDatepicker]="datepickerr" placeholder="" name="data_riconsegna">
+            <mat-datepicker-toggle matSuffix [for]="datepickerr"></mat-datepicker-toggle>
+            <mat-datepicker #datepickerr></mat-datepicker>
+        </mat-form-field>
+
+
+
+
+        <br>
+        <button mat-raised-button (click)="backPrestiti()">Indietro</button>
+        <button mat-raised-button color="primary" (click)="create(utente_id.value, libro_id.value, data_prestito.value, data_riconsegna.value)">Salva</button>
+    </form>
+</mat-card>

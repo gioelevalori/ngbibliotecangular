@@ -1,0 +1,32 @@
+<mat-card class="example-card">
+
+    <mat-form-field class="form-inline" class="example-full-width" appearance="fill">
+        <input matInput placeholder="Search..." [(ngModel)]="filterTerm">
+        <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field><br>
+    <button mat-raised-button color="primary" (click)="newAutori()">Nuovo Autore</button>
+    <table class="table table-striped ">
+        <thead>
+
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Cognome</th>
+                <th scope="col">Azione</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let autore of autori">
+                <th scope="row">{{autore.id}}</th>
+                <td>{{autore.nome}}</td>
+                <td>{{autore.cognome}}</td>
+                <td><button mat-raised-button color="primary" routerLink="/autori/{{autore.id}}">Mostra</button></td>
+
+            </tr>
+
+        </tbody>
+    </table>
+</mat-card>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">

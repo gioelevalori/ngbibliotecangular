@@ -1,0 +1,29 @@
+<br>
+<mat-card class="card">
+    <div class="row">
+        <form class="example-form">
+            <br>
+            <mat-card>Inserisci la tua email, ti contatteremo il prima possibile</mat-card>
+            <br>
+            <mat-form-field class="example-full-width">
+                <mat-label>email</mat-label>
+                <input required #email matInput placeholder="" name="email">
+            </mat-form-field>
+            <br>
+            <mat-form-field class="example-full-width">
+                <mat-label>Libro</mat-label>
+                <mat-select matNativeControl #libro_id name="libro_id">
+                    <mat-option *ngFor="let libro of libri" value="{{ libro.id }}">{{ libro.titolo }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <br>
+            <mat-form-field class="example-full-width">
+                <mat-label>descrizione</mat-label>
+                <textarea #descrizione matInput placeholder="" name="descrizione"></textarea>
+            </mat-form-field>
+            <br>
+            <button mat-raised-button (click)="backRichiesta()">Indietro</button>
+            <button mat-raised-button color="primary" type=" button " (click)="create(email.value, libro_id.value, descrizione.value) ">Salva</button>
+        </form>
+    </div>
+</mat-card>

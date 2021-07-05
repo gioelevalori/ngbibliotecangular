@@ -1,0 +1,20 @@
+<mat-card>
+    <table class="table  table-striped">
+
+        <tr>
+            <td>Email</td>
+            <mat-option>{{richieste.email}}</mat-option>
+        </tr>
+        <tr>
+            <td>Libro</td>
+            <mat-option>{{ richieste.libri.titolo }}</mat-option>
+
+        </tr>
+        <tr>
+            <td>Descrizione</td>
+            <mat-option>{{richieste.descrizione}}</mat-option>
+        </tr>
+    </table>
+    <button mat-raised-button (click)="backRichieste()">Indietro</button>
+    <button mat-raised-button color="warn" (click)="delete()">Elimina</button>
+</mat-card>

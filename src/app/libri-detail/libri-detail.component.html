@@ -1,0 +1,124 @@
+<br>
+<mat-card>
+    <form class="example-form">
+        <h1>Modifica Libro</h1>
+        <mat-form-field class="example-full-width">
+            <mat-label>titolo</mat-label>
+            <input #titolo matInput placeholder="" [(ngModel)]="libri.titolo" name="libri">
+        </mat-form-field>
+        <br>
+        <table class="example-full-width" cellspacing="0">
+            <tr>
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Editore</mat-label>
+                        <mat-select #editore_id placeholder="{{libri.editori.nome}}" [(ngModel)]="libri.editore_id" name="editore_id ">
+                            <mat-option *ngFor="let editore of editori" [value]="editore.id">{{ editore.nome }}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Sito Editore</mat-label>
+                        <mat-select #editore_id placeholder="{{libri.editori.sito_editore}}" [(ngModel)]="libri.editore_id" name="editore_id ">
+                            <mat-option *ngFor="let editore of editori" [value]="editore.id">{{ editore.sito_editore }}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </td>
+            </tr>
+        </table>
+        <br>
+        <mat-form-field class="example-full-width">
+            <mat-label>Autore</mat-label>
+            <mat-select #autore_id [(ngModel)]="libri.autore_id" placeholder="{{libri.autori.nome}} {{libri.autori.cognome}}" name="autore_id ">
+                <mat-option *ngFor="let autore of autori" [value]="autore.id">{{ autore.nome }} {{ autore.cognome }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <br>
+
+        <mat-form-field class="example-full-width">
+            <mat-label>luogo edizione</mat-label>
+            <input #luogo_edizione matInput placeholder=" " [(ngModel)]="libri.luogo_edizione" name="luogo_edizione">
+        </mat-form-field>
+        <br>
+
+
+        <mat-form-field class="example-full-width ">
+            <mat-label>Condizione Libro</mat-label>
+            <mat-select matNativeControl #condizione_libro [(ngModel)]="libri.condizione_libro" name="condizione_libro">
+                <mat-option value="nuovo">Nuovo</mat-option>
+                <mat-option value="leggermente danneggiato">Leggermente danneggiato</mat-option>
+                <mat-option value="danneggiato">Danneggiato</mat-option>
+                <mat-option value="come nuovo">Come nuovo</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+
+        <br>
+        <mat-form-field class="example-full-width ">
+            <mat-label>Numero Pagine</mat-label>
+            <input matInput type="number" #pagine matInput placeholder=" " [(ngModel)]="libri.pagine" name="pagine">
+        </mat-form-field>
+        <br>
+        <mat-form-field class="example-full-width ">
+            <mat-label>Genere</mat-label>
+            <mat-select matNativeControl #genere [(ngModel)]="libri.genere" name="genere">
+                <mat-option value="avventura">Avventura</mat-option>
+                <mat-option value="autobiografia">Autobiografia</mat-option>
+                <mat-option value="biografia">Biografia</mat-option>
+                <mat-option value="romanzo">Romanzo</mat-option>
+                <mat-option value="fantasy">Fantasy</mat-option>
+                <mat-option value="thriller">Thriller</mat-option>
+                <mat-option value="horror">Horror</mat-option>
+                <mat-option value="informatica">Informatica</mat-option>
+                <mat-option value="fantascienza">Fantascienza</mat-option>
+                <mat-option value="giallo ">Giallo</mat-option>
+                <mat-option value="rosa">Rosa</mat-option>
+                <mat-option value="umoristico">Umoristico</mat-option>
+                <mat-option value="storico">Storico</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <br>
+        <table class="example-full-width" cellspacing="0">
+            <tr>
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>isbn</mat-label>
+                        <input #isbn matInput placeholder=" " [(ngModel)]="libri.isbn" name="isbn">
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>isbn13</mat-label>
+                        <input #isbn13 matInput placeholder=" " [(ngModel)]="libri.isbn13" name="isbn13">
+                    </mat-form-field>
+                </td>
+            </tr>
+        </table>
+        <mat-form-field class="example-full-width">
+            <mat-label>descrizione</mat-label>
+            <textarea #descrizione matInput placeholder=" " [(ngModel)]="libri.descrizione" name="descrizione"></textarea>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="example-full-width">
+            <mat-label>Anno Edizione</mat-label>
+            <input matInput #anno_edizione [(ngModel)]="libri.anno_edizione" name="anno_edizione">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="example-full-width ">
+            <mat-label>Stato</mat-label>
+            <mat-select matNativeControl #stato [(ngModel)]="libri.stato" name="stato">
+                <mat-option value="disponibile">Disponibile</mat-option>
+                <mat-option value="non disponibile">Non disponibile</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <br>
+        <button mat-raised-button (click)=" backLibri() ">Indietro</button>
+        <button mat-raised-button color="primary" (click)="update(titolo.value, editore_id.value, autore_id.value, luogo_edizione.value,genere.value,condizione_libro.value,pagine.value,isbn.value,isbn13.value,descrizione.value,anno_edizione.value,stato.value) ">Salva</button>
+        <button mat-raised-button color="warn" (click)="delete() ">Elimina</button>
+
+
+    </form>
+</mat-card>

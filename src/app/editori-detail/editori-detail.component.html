@@ -1,0 +1,22 @@
+<br>
+
+<mat-card>
+    <form class="example-form">
+        <h1>Modifica Editore</h1>
+        <mat-form-field class="example-full-width">
+            <mat-label>titolo</mat-label>
+            <input #nome matInput placeholder="" [(ngModel)]="editori.nome" name="nome">
+        </mat-form-field>
+
+
+        <mat-form-field class="example-full-width">
+            <mat-label>testo</mat-label>
+            <input #sito_editore matInput placeholder="" [(ngModel)]="editori.sito_editore" name="sito_editore">
+        </mat-form-field>
+        <br>
+        <button mat-raised-button (click)="backEditori()">Indietro</button>
+        <button mat-raised-button color="primary" (click)="update(nome.value, sito_editore.value)">Salva</button>
+        <button mat-raised-button color="warn" (click)="delete()">Elimina</button>
+
+    </form>
+</mat-card>

@@ -1,0 +1,68 @@
+<br>
+
+
+<form class="example-form" #f="ngForm">
+    <input type="hidden" name="id" [(ngModel)]="user.id">
+
+    <br>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Nome</mat-label>
+        <input matInput required pattern="[a-zA-Z\s]*" minlength="3" #name="ngModel" class="form-control" [(ngModel)]="user.name" name="name" id="name">
+        <div *ngIf="name.dirty && name.touched && name.invalid">
+            <div class="alert-danger" *ngIf="name.errors?.required">
+                The field name is required
+            </div>
+
+            <div class="alert-danger" *ngIf="name.errors?.minlength">
+                The min length of field is name {{name.errors?.minlength.requiredLength }} chars
+            </div>
+
+            <div class="alert-danger" *ngIf="name.errors?.pattern">
+                The field first pattern is {{name.errors?.pattern.requiredPattern }}
+            </div>
+
+        </div>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="example-full-width">
+        <mat-label>Cognome</mat-label>
+        <input matInput class="form-control" pattern="[a-zA-Z\s]*" minlength="3" #lastname="ngModel" [(ngModel)]="user.lastname" name="lastname" id="cognome">
+
+
+        <div *ngIf="lastname.dirty && lastname.touched && lastname.invalid">
+            <div class="alert-danger" *ngIf="lastname.errors?.required">
+                The field lastname is required
+            </div>
+
+            <div class="alert-danger" *ngIf="lastname.errors?.minlength">
+                The min length of field is lastname {{lastname.errors?.minlength.requiredLength }} chars
+            </div>
+
+            <div class="alert-danger" *ngIf="lastname.errors?.pattern">
+                The field first pattern is {{lastname.errors?.pattern.requiredPattern }}
+            </div>
+
+        </div>
+
+
+    </mat-form-field>
+    <br>
+    <mat-form-field class="example-full-width">
+        <mat-label>Email</mat-label>
+        <input matInput required class="form-control" [(ngModel)]="user.email" name="email" id="email">
+    </mat-form-field>
+    <br>
+    <br>
+    <mat-form-field class="example-full-width">
+        <mat-label>Telefono</mat-label>
+        <input matInput required class="form-control" [(ngModel)]="user.phone" name="telefono" id="telefono">
+    </mat-form-field>
+    <br>
+    <button mat-raised-button color="primary" (click)=" backToUsers() ">BACK</button>
+    <button mat-raised-button (click)="resetForm(f.form)">RESET</button>
+    <button [disabled]="f.invalid" mat-raised-button color="warn" (click)="updateUser(user)">SAVE</button>
+
+
+
+</form>

@@ -1,0 +1,19 @@
+<mat-card>
+    <form class="example-form">
+        <br>
+        <h1>Nuovo Autore</h1>
+        <mat-form-field class="example-full-width">
+            <mat-label>Nome</mat-label>
+            <input #nome matInput placeholder="" name="nome">
+        </mat-form-field>
+        <br>
+        <mat-form-field class="example-full-width">
+            <mat-label>Cognome</mat-label>
+            <textarea #cognome matInput placeholder="" name="cognome"></textarea>
+        </mat-form-field>
+        <br>
+        <button mat-raised-button (click)="backAutori()">Indietro</button>
+        <button mat-raised-button color="primary" type="button" (click)="create(nome.value, cognome.value)">Salva</button>
+    </form>
+
+</mat-card>

@@ -1,0 +1,55 @@
+<mat-sidenav-container class="sidenav-container mat-app-background">
+    <mat-sidenav #drawer class="sidenav" [ngClass]="{'dark-theme-mode':isDarkTheme}">
+        <mat-toolbar>Menu</mat-toolbar>
+        <mat-nav-list>
+            <a mat-list-item href="#" *ngIf="isUserLoggedIn" routerLink="dashboard">
+                <mat-icon aria-hidden="false" aria-label="account_circle">home</mat-icon>Home</a>
+            <a mat-list-item href="#" *ngIf="isUserLoggedIn && user?.role=='admin'" routerLink="admin/users">
+                <mat-icon aria-hidden="false" aria-label="account_circle">person</mat-icon> Users</a>
+            <a mat-list-item href="#" *ngIf="isUserLoggedIn && user?.role=='admin'" routerLink="admin/editori">
+                <mat-icon aria-hidden="false" aria-label="account_circle">person</mat-icon> Editori</a>
+            <a mat-list-item href="#" *ngIf="isUserLoggedIn && user?.role=='admin'" routerLink="admin/autori">
+                <mat-icon aria-hidden="false" aria-label="account_circle">person</mat-icon> Autori</a>
+            <a mat-list-item href="#" *ngIf="isUserLoggedIn && user?.role=='admin'" routerLink="admin/libri">
+                <mat-icon aria-hidden="false" aria-label="account_circle">book</mat-icon> Libri
+            </a>
+            <a mat-list-item href="#" *ngIf="isUserLoggedIn && user?.role=='admin'" routerLink="admin/prestiti">
+                <mat-icon aria-hidden="false" aria-label="account_circle">swap_horiz</mat-icon> Prestiti</a>
+            <a mat-list-item href="#" *ngIf="isUserLoggedIn && user?.role=='admin'" routerLink="admin/richieste">
+                <mat-icon aria-hidden="false" aria-label="account_circle">swap_horiz</mat-icon> Richieste</a>
+            <a mat-list-item href="#" *ngIf="isUserLoggedIn" routerLink="richiesta">
+                <mat-icon aria-hidden="false" aria-label="account_circle">swap_horiz</mat-icon> Richiesta</a>
+        </mat-nav-list>
+
+        <br>
+        <br>
+        <mat-nav-list>
+            <a>
+
+
+            </a>
+            <a mat-list-item *ngIf="!isUserLoggedIn" href="#" (click)="signIn($event)">Login</a>
+            <a mat-list-item *ngIf="!isUserLoggedIn" href="#" (click)="signUp($event)">Sign up</a>
+            <a mat-list-item *ngIf="isUserLoggedIn" routerLink="utente/{{ user.id }}">
+                <mat-icon aria-hidden="false" aria-label="account_circle">person</mat-icon>
+                {{name}}
+            </a>
+            <a *ngIf="isUserLoggedIn" href="#" mat-list-item (click)="logout($event)">Log out</a>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+
+
+
+        <mat-toolbar color="primary">
+            <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
+      <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+    </button>
+            <span>Biblioteca</span>
+            <span style="flex:auto;"></span>
+        </mat-toolbar>
+
+        <router-outlet></router-outlet>
+
+    </mat-sidenav-content>
+</mat-sidenav-container>

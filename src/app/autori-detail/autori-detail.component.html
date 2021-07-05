@@ -1,0 +1,19 @@
+<mat-card>
+    <form class="example-form">
+        <br>
+        <h1>Modifica Autore</h1>
+        <mat-form-field class="example-full-width">
+            <mat-label>Nome</mat-label>
+            <input #nome matInput placeholder="" [(ngModel)]="autori.nome" name="nome">
+        </mat-form-field>
+        <br>
+        <mat-form-field class="example-full-width">
+            <mat-label>Cognome</mat-label>
+            <textarea #cognome matInput placeholder="" [(ngModel)]="autori.cognome" name="cognome"></textarea>
+        </mat-form-field>
+        <br>
+        <button mat-raised-button (click)="backAutori()">Indietro</button>
+        <button mat-raised-button color="primary" (click)="update(nome.value, cognome.value)">Salva</button>
+        <button mat-raised-button color="warn" (click)="delete()">Elimina</button>
+    </form>
+</mat-card>

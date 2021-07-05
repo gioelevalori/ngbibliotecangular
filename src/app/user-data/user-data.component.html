@@ -1,0 +1,27 @@
+<mat-card>
+    <table class="table table table-striped">
+
+        <tr>
+            <th>Nome</th>
+            <mat-option>{{User.name}}</mat-option>
+        </tr>
+        <tr>
+            <th>Cognome</th>
+            <mat-option>{{User.lastname}}</mat-option>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <mat-option>{{User.email}}</mat-option>
+        </tr>
+        <tr>
+            <th>Telefono</th>
+            <mat-option>{{User.phone}}</mat-option>
+        </tr>
+        <tfoot>
+            <tr>
+                <td colspan="2">
+                    <button mat-raised-button color="primary" (click)=" backToUsers() ">BACK</button></td>
+            </tr>
+        </tfoot>
+    </table>
+</mat-card>

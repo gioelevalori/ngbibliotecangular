@@ -1,0 +1,22 @@
+<mat-card class="example-card">
+    <mat-form-field class="form-inline" class="example-full-width" appearance="fill">
+        <input matInput placeholder="Search..." [(ngModel)]="filterTerm">
+        <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+    <table class="table table-striped ">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Cognome</th>
+                <th>Email</th>
+                <th>Telefono</th>
+                <th></th>
+                <th>Azioni</th>
+                <th></th>
+            </tr>
+            <tr app-user *ngFor="let user of users | filter:filterTerm" [user-data]="user" (onDeleteUser)="onDeleteUser($event)" (onSelectUser)="onSelectUser($event)"></tr>
+        </thead>
+    </table>
+</mat-card>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">

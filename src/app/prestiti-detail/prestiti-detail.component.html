@@ -1,0 +1,39 @@
+<br>
+<mat-card>
+    <form class="example-form">
+        <h1>Modifica Prestito</h1>
+        <mat-form-field class="example-full-width">
+            <mat-label>Utente</mat-label>
+            <mat-select #utente_id name="utente_id" [(ngModel)]="prestiti.utente_id">
+                <mat-option *ngFor="let user of users" [value]="user.id">{{ user.name }}</mat-option>
+            </mat-select>
+            <br>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="example-full-width">
+            <mat-label>Stato</mat-label>
+            <mat-select #libro_id placeholder="{{prestiti.libri.titolo}}" [(ngModel)]="prestiti.libro_id" name="libro_id">
+
+                <mat-option *ngFor="let libro of libri" [value]="libro.id"> {{libro.titolo}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="example-full-width">
+            <mat-label>data_prestito</mat-label>
+            <input #data_prestito matInput [(ngModel)]="prestiti.data_prestito" placeholder="{{prestiti.data_prestito}}" name="data_prestito">
+            <mat-datepicker-toggle matSuffix [for]="datepickerrr"></mat-datepicker-toggle>
+            <mat-datepicker #datepickerrr></mat-datepicker>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="example-full-width">
+            <mat-label>data_riconsegna</mat-label>
+            <input #data_riconsegna matInput [(ngModel)]="prestiti.data_riconsegna" placeholder="{{prestiti.data_riconsegna}}" name="data_riconsegna">
+            <mat-datepicker-toggle matSuffix [for]="datepickerrrr"></mat-datepicker-toggle>
+            <mat-datepicker #datepickerrrr></mat-datepicker>
+        </mat-form-field>
+        <br>
+        <button mat-raised-button (click)="backPrestiti()">Indietro</button>
+        <button mat-raised-button color="primary" (click)=" update(utente_id.value, libro_id.value, data_prestito.value, data_riconsegna.value) ">Salva</button>
+        <button mat-raised-button color="warn" (click)="delete() ">Elimina</button>
+    </form>
+</mat-card>
